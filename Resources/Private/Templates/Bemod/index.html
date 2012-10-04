@@ -1,0 +1,58 @@
+{namespace ViewHelper=Tx_Cmp3Demo_ViewHelpers}
+<f:be.container
+    addCssFile="{f:uri.resource(path:'css/style.css')}">
+
+    <div class="txcmp3M1Txcmp3demoM1">
+        <label><f:translate key="tx_cmp3_jobs" /></label>
+        <f:form method='post' action='index' name='jobFilter' object="{jobFilter}">
+            <ViewHelper:form.advancedSelect property='selectedJob' options='{jobFilter.jobs}' defaultOption="{f:translate(key:'tx_cmp3_msg_select')}" class="listbox"/>
+            <div class='formGroup'>
+                <div id="txcmp3m1txcmp3demom1txcmp3demobemodcontrol3_ctl">
+                    <f:form.submit value="{f:translate(key:'tx_cmp3_msg_submit')}" id="txcmp3m1txcmp3demom1txcmp3demobemodcontrol3" class="button" />
+                </div>
+            </div>
+        </f:form>
+
+        <hr />
+
+        <f:if condition="{error}">
+            <f:translate key="tx_cmp3_msg_failed" />
+        </f:if>
+
+        <f:if condition="{jobFilter.selectedJob}">
+        <f:if condition="{error}">
+            <f:then>
+            </f:then>
+            <f:else>
+	            <f:translate key="tx_cmp3_msg_job_generated" />
+	            <div id="btnDownloadLink_ctl">
+	                <a href="{jobFilter.downloadUrl}" id="btnDownloadLink" target="_blank">Download Result</a>
+	            </div>
+            </f:else>
+        </f:if>
+
+            <f:if condition="{jobFilter.result}">
+                <div id="pnlResult_ctl">
+                    <h4>Result</h4>
+                    <div id="pnlResult">{jobFilter.result}</div>
+                </div>
+            </f:if>
+
+            <f:if condition="{jobFilter.setup}">
+                <div id="pnlSetup_ctl">
+                    <h4>Setup</h4>
+                    <div id="pnlSetup">{jobFilter.setup}</div>
+                </div>
+            </f:if>
+
+            <f:if condition="{jobFilter.log}">
+                <div id="pnlLog_ctl">
+                    <h4>Log</h4>
+                    <div id="pnlLog">{jobFilter.log}</div>
+                </div>
+            </f:if>
+
+        </f:if>
+    </div>
+
+</f:be.container>

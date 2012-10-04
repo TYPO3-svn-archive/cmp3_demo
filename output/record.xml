@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cmp3document xmlns="http://www.Bitmotion/cmp3/cmp3document" xmlns:cmp3="http://www.Bitmotion/cmp3/cmp3document">
+  <meta/>
+  <content type="tree">
+    <node type="group" subtype="records">
+      <record type="tt_news" subtype="0" language="en">
+        <field name="uid" type="int" format="text">
+          <meta/>
+          <value>30</value>
+        </field>
+        <field name="pid" type="int" format="text">
+          <meta/>
+          <value>71</value>
+        </field>
+        <field name="tstamp" type="datetime" format="datetime">
+          <meta/>
+          <value>2012-09-21T13:08:33+02:00</value>
+        </field>
+        <field name="crdate" type="datetime" format="datetime">
+          <meta/>
+          <value>2012-09-21T13:07:19+02:00</value>
+        </field>
+        <field name="cruser_id" type="int" format="text">
+          <meta/>
+          <value>1</value>
+        </field>
+        <field name="editlock" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="deleted" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="hidden" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="starttime" type="datetime" format="datetime">
+          <meta/>
+          <value>1970-01-01T01:00:00+01:00</value>
+        </field>
+        <field name="endtime" type="datetime" format="datetime">
+          <meta/>
+          <value>1970-01-01T01:00:00+01:00</value>
+        </field>
+        <field name="fe_group" type="text" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="title" type="text" format="line">
+          <meta/>
+          <value>naw.info on Tour</value>
+        </field>
+        <field name="datetime" type="datetime" format="datetime">
+          <meta/>
+          <value>2012-09-21T13:05:00+02:00</value>
+        </field>
+        <field name="image" type="text" format="text">
+          <meta/>
+          <value>/var/www/cmp3/htdocs/uploads/pics/fruehstueck.jpg</value>
+        </field>
+        <field name="imagecaption" type="text" format="multline">
+          <meta/>
+          <value/>
+        </field>
+        <field name="imagealttext" type="text" format="multline">
+          <meta/>
+          <value/>
+        </field>
+        <field name="imagetitletext" type="text" format="multline">
+          <meta/>
+          <value/>
+        </field>
+        <field name="related" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="short" type="text" format="multline">
+          <meta/>
+          <value/>
+        </field>
+        <field name="bodytext" type="text" format="typo3_rte">
+          <meta/>
+          <value>&lt;div&gt;So langsam ist es schon fast Tradition. Auch dieses Jahr haben wir uns in den Harz aufgemacht, um ein Wochenende lang gemeinsam Zeit zu verbringen, Spaß zu haben und uns dabei noch dem ein oder anderen wichtigen Thema zu widmen.&#13;
+Dieses Mal war die Location ein echter Volltreffer! Das Haus mit seiner riesigen Dachterrasse: ein Traum. Passend dazu hatten wir richtig Glück mit dem Wetter, so dass wir schon zum Frühstück gern mal im T-Shirt aufgelaufen sind.&#13;
+Ein weiteres Goodie war das freie WLAN, das dem ein oder anderen Kollegen ein breites Grinsen aufs Gesicht gezaubert hat.&#13;
+Auf dem Programm stand an diesem Wochenende vor allem eins: gemeinsam eine gute Zeit verbringen! Ob nun beim gemeinschaftlichen Kochen und Essen, einem kühlen Bierchen am Abend oder auch bei einer Runde Volleyball – es sollte an nix fehlen.&#13;
+So hatten wir jede Menge Gelegenheiten, die Kollegen mal wieder außerhalb der Arbeit kennen zu lernen, zu daddeln, oder einfach mal zu fachsimpeln.&lt;/div&gt;</value>
+        </field>
+        <field name="author" type="text" format="line">
+          <meta/>
+          <value/>
+        </field>
+        <field name="author_email" type="text" format="line">
+          <meta/>
+          <value/>
+        </field>
+        <field name="category" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="news_files" type="text" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="links" type="text" format="multline">
+          <meta/>
+          <value/>
+        </field>
+        <field name="type" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="page" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="keywords" type="text" format="multline">
+          <meta/>
+          <value/>
+        </field>
+        <field name="archivedate" type="date" format="date">
+          <meta/>
+          <value>1970-01-01</value>
+        </field>
+        <field name="ext_url" type="text" format="line">
+          <meta/>
+          <value/>
+        </field>
+        <field name="sys_language_uid" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="l18n_parent" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="no_auto_pb" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="tx_t3pn_cmp_crossmedia" type="text" format="text">
+          <meta/>
+          <value/>
+        </field>
+      </record>
+      <record type="tt_news" subtype="0" language="en">
+        <field name="uid" type="int" format="text">
+          <meta/>
+          <value>29</value>
+        </field>
+        <field name="pid" type="int" format="text">
+          <meta/>
+          <value>71</value>
+        </field>
+        <field name="tstamp" type="datetime" format="datetime">
+          <meta/>
+          <value>2012-09-21T13:04:36+02:00</value>
+        </field>
+        <field name="crdate" type="datetime" format="datetime">
+          <meta/>
+          <value>2012-09-21T13:02:44+02:00</value>
+        </field>
+        <field name="cruser_id" type="int" format="text">
+          <meta/>
+          <value>1</value>
+        </field>
+        <field name="editlock" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="deleted" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="hidden" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="starttime" type="datetime" format="datetime">
+          <meta/>
+          <value>1970-01-01T01:00:00+01:00</value>
+        </field>
+        <field name="endtime" type="datetime" format="datetime">
+          <meta/>
+          <value>1970-01-01T01:00:00+01:00</value>
+        </field>
+        <field name="fe_group" type="text" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="title" type="text" format="line">
+          <meta/>
+          <value>Auf gehts zur T3CON12!</value>
+        </field>
+        <field name="datetime" type="datetime" format="datetime">
+          <meta/>
+          <value>2012-09-21T13:00:00+02:00</value>
+        </field>
+        <field name="image" type="text" format="text">
+          <meta/>
+          <value>/var/www/cmp3/htdocs/uploads/pics/T3CON12-Stuttgart.png</value>
+        </field>
+        <field name="imagecaption" type="text" format="multline">
+          <meta/>
+          <value/>
+        </field>
+        <field name="imagealttext" type="text" format="multline">
+          <meta/>
+          <value/>
+        </field>
+        <field name="imagetitletext" type="text" format="multline">
+          <meta/>
+          <value/>
+        </field>
+        <field name="related" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="short" type="text" format="multline">
+          <meta/>
+          <value/>
+        </field>
+        <field name="bodytext" type="text" format="typo3_rte">
+          <meta/>
+          <value>&lt;div&gt;Es ist mal wieder Kofferpacken angesagt!&#13;
+Vom 4. bis 6. Oktober steigt in &lt;b&gt;Stuttgart&lt;/b&gt; die achte europäische TYPO3 &amp;amp; FLOW3 Konferenz &lt;b&gt;T3CON12&lt;/b&gt;.&#13;
+Wir von naw.info sind dabei mit gleich zwei Vorträgen vor Ort:&#13;
+Thomas Esders und René Fritz werden über unsere Cross-Media-Publishing Lösung CMP3 sprechen und Helmut Hummel wird TYPO3 6.0 vorstellen.&#13;
+Wir wünschen allen jetzt schon mal viel Spaß und hoffen auf viele neue Impulse und gutes Feedback durch die TYPO3 Community.&#13;
+Natürlich werden wir euch an dieser Stelle mit Infos und Berichten versorgen.&lt;/div&gt;</value>
+        </field>
+        <field name="author" type="text" format="line">
+          <meta/>
+          <value/>
+        </field>
+        <field name="author_email" type="text" format="line">
+          <meta/>
+          <value/>
+        </field>
+        <field name="category" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="news_files" type="text" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="links" type="text" format="multline">
+          <meta/>
+          <value/>
+        </field>
+        <field name="type" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="page" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="keywords" type="text" format="multline">
+          <meta/>
+          <value/>
+        </field>
+        <field name="archivedate" type="date" format="date">
+          <meta/>
+          <value>1970-01-01</value>
+        </field>
+        <field name="ext_url" type="text" format="line">
+          <meta/>
+          <value/>
+        </field>
+        <field name="sys_language_uid" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="l18n_parent" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="no_auto_pb" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="tx_t3pn_cmp_crossmedia" type="text" format="text">
+          <meta/>
+          <value/>
+        </field>
+      </record>
+      <record type="tt_news" subtype="0" language="en">
+        <field name="uid" type="int" format="text">
+          <meta/>
+          <value>28</value>
+        </field>
+        <field name="pid" type="int" format="text">
+          <meta/>
+          <value>71</value>
+        </field>
+        <field name="tstamp" type="datetime" format="datetime">
+          <meta/>
+          <value>2012-09-21T10:35:32+02:00</value>
+        </field>
+        <field name="crdate" type="datetime" format="datetime">
+          <meta/>
+          <value>2012-09-21T10:26:13+02:00</value>
+        </field>
+        <field name="cruser_id" type="int" format="text">
+          <meta/>
+          <value>1</value>
+        </field>
+        <field name="editlock" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="deleted" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="hidden" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="starttime" type="datetime" format="datetime">
+          <meta/>
+          <value>1970-01-01T01:00:00+01:00</value>
+        </field>
+        <field name="endtime" type="datetime" format="datetime">
+          <meta/>
+          <value>1970-01-01T01:00:00+01:00</value>
+        </field>
+        <field name="fe_group" type="text" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="title" type="text" format="line">
+          <meta/>
+          <value>NASA is Working on a Real-Life Star Trek Warp Drive</value>
+        </field>
+        <field name="datetime" type="datetime" format="datetime">
+          <meta/>
+          <value>2012-09-21T10:22:00+02:00</value>
+        </field>
+        <field name="image" type="text" format="text">
+          <meta/>
+          <value>/var/www/cmp3/htdocs/uploads/pics/Enterprise-Warp-Drive-nasa.jpg</value>
+        </field>
+        <field name="imagecaption" type="text" format="multline">
+          <meta/>
+          <value/>
+        </field>
+        <field name="imagealttext" type="text" format="multline">
+          <meta/>
+          <value/>
+        </field>
+        <field name="imagetitletext" type="text" format="multline">
+          <meta/>
+          <value/>
+        </field>
+        <field name="related" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="short" type="text" format="multline">
+          <meta/>
+          <value/>
+        </field>
+        <field name="bodytext" type="text" format="typo3_rte">
+          <meta/>
+          <value>Warp drive – or travel at speeds faster than light – has long been  one of the cornerstones of science fiction, however top NASA scientist  Dr. Harold “Sonny” White recently stated that “a &lt;a href="http://inhabitat.com/tag/star-trek/"&gt;Star Trek&lt;/a&gt; experience within our lifetime is not such a remote possibility.” The &lt;a href="http://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20110015936_2011016932.pdf"&gt;Advanced Propulsion Theme Lead for the NASA Engineering Directorate&lt;/a&gt; wrote in a blog post on &lt;a href="http://www.icarusinterstellar.org/daydreaming-beyond-the-solar-system-with-warp-field-mechanics/"&gt;Icarus Interstellar&lt;/a&gt;:  “At JSC, Eagleworks has initiated an interferometer test bed that will  try to generate and detect a microscopic instance of a little warp  bubble. Although this is just a tiny instance of the phenomena, it will  be existence proof for the idea of perturbing space time—a “Chicago  pile” moment, as it were.”&#13;
+Warp speed is a complex issue because traveling faster than light  (which reportedly can’t be done) also means traveling faster than time.  In short, astronauts traveling to distant planets may return to Earth  and find their families have aged dramatically since they’ve been gone.  However Dr. White proposes using &lt;a href="http://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20110015936_2011016932.pdf"&gt;a space warp which uses the same space and the same standard of time.&lt;/a&gt;&#13;
+“If we can theoretically manipulate it for our purposes, interstellar  flight could be an option on a future technology roadmap”, Dr White  wrote. “The first question you might start with is, “How hard is  interstellar flight?” The &lt;a href="http://en.wikipedia.org/wiki/Voyager_1"&gt;Voyager 1 spacecraft&lt;/a&gt;  is sometimes lifted up as our first interstellar spacecraft. It’s not a  very big fella—it’s just a little bit under a metric ton, and it’s been  going on now for about 33 years, headed straight out away from our  solar system about as fast as it can go.”&#13;
+“If you stuck a measuring stick out to it, it’s about 119  astronomical units (AU) away from the sun. (An AU is the distance from  the sun to the Earth.) It’s one of the highest energy objects that’s  been launched to date, and nothing that we’ve launched will pass it. But  if you wanted to predict how long it would take to get to the nearest  star system, like Alpha Centauri, it would take around 75,000 years to  get there. In terms of our galactic neighborhood, Alpha Centauri is  right around the corner at 4.3 light years (271,931 AUs), so 75,000  years would not be ideal—especially for a human crew. But if you threw a  bunch of power and propulsion behind it, then what?”&#13;
+That has long been the question, but no one is sure how to do it.  Sure Capt. Kirk and co. simply say ‘engage’ and warp from one star  system to another, but unfortunately we don’t have dilithium crystals to  power our star drives. However Dr. Snow believes a loophole can be  found in mathematics.&#13;
+“Those equations are tested using an instrument called the &lt;a href="http://www.mmo-champion.com/threads/1198216-Warp-Drive-could-Become-Science-fact-NASA-small-scale-testing-underway?p=18464256"&gt;White-Juday Warp Field Interferometer&lt;/a&gt;.  By harnessing the physics of cosmic inflation, future spaceships  crafted to satisfy the laws of these mathematical equations may actually  be able to get somewhere unthinkably fast—and without adverse effects.  The math would allow you to go to Alpha Centauri in two weeks as  measured by clocks here on Earth. So somebody’s clock aboard the  spacecraft would have the same rate of time as somebody in mission  control here in Houston might have. There are no tidal forces inside the  bubble, no undue issues, and the proper acceleration is zero. When you  turn the field on, everybody doesn’t go slamming against the bulkhead,  which would be a very short and sad trip.”&#13;
+The warp drive of Star Trek is a possibility! Now if only NASA could get the funding for more testing…</value>
+        </field>
+        <field name="author" type="text" format="line">
+          <meta/>
+          <value/>
+        </field>
+        <field name="author_email" type="text" format="line">
+          <meta/>
+          <value/>
+        </field>
+        <field name="category" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="news_files" type="text" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="links" type="text" format="multline">
+          <meta/>
+          <value/>
+        </field>
+        <field name="type" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="page" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="keywords" type="text" format="multline">
+          <meta/>
+          <value>light speed , nasa , nasa advanced propulsion , nasa engineering directorate , star trek , warp drive </value>
+        </field>
+        <field name="archivedate" type="date" format="date">
+          <meta/>
+          <value>1970-01-01</value>
+        </field>
+        <field name="ext_url" type="text" format="line">
+          <meta/>
+          <value/>
+        </field>
+        <field name="sys_language_uid" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="l18n_parent" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="no_auto_pb" type="int" format="text">
+          <meta/>
+          <value/>
+        </field>
+        <field name="tx_t3pn_cmp_crossmedia" type="text" format="text">
+          <meta/>
+          <value/>
+        </field>
+      </record>
+    </node>
+  </content>
+</cmp3document>

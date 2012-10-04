@@ -1,0 +1,94 @@
+
+
+#----- Source -----------------------------------------------------
+
+source {
+
+	ttnews = \Cmp3\Source\Typo3Xml
+	ttnews.title = product with processing
+	ttnews.fetcher = \Cmp3\Source\Typo3Query
+	ttnews.fetcher {
+
+		languageOverlayMode = hideNonTranslated
+		contentFallback =
+		enableFields = BE
+
+		selection {
+			10 = news
+		}
+
+		queries.news {
+			table = tt_news
+			enableFields = default
+
+			constraints {
+			}
+
+			clauses {
+				limitcount = 3
+			}
+		}
+	}
+	ttnews.processing {
+
+		10 = \Cmp3\ContentProcessing\FileWriter
+		10.filename = EXT:cmp3_demo/output/record.xml
+
+		22 = \Cmp3\ContentProcessing\XPath_ImageMeta
+		22.xpath = //field[@format="image_file"]
+
+		20 = \Cmp3\ContentProcessing\XPath_Typo3RteRender
+		20.xpath = //field[@format="typo3_rte"]
+
+		1000 = \Cmp3\ContentProcessing\FileWriter
+		1000.filename = EXT:cmp3_demo/output/record_processed.xml
+
+	}
+
+}
+
+
+
+#----- Transformation ------------------------------------------
+
+transformation.xml_to_pdf_with_fop = \Cmp3\Transformation\Fop
+transformation.xml_to_pdf_with_fop {
+	stylesheet = EXT:cmp3_demo/fixture/news_to_fo.xsl
+	# foout = EXT:cmp3_demo/fixture/news-fo.xml
+	// config file for fop
+	engine.fop.config =
+	// cli parameter
+	engine.fop.parameter =
+}
+
+
+
+#----- Job -----------------------------------------------------
+
+
+job.ttNewsFOP.title = Render News to PDF
+job.ttNewsFOP {
+	parts {
+		10.source = ttnews
+		10.transformation= xml_to_pdf_with_fop
+	}
+	compose {
+		10 = \Cmp3\Composer\PdfShrink
+		10.quality = ebook
+	}
+}
+
+job.news2.title = Render News to PDF with background
+job.news2 {
+	parts {
+		10.source = ttnews
+		10.transformation= xml_to_pdf_with_fop
+	}
+	compose {
+
+		20 = \Cmp3\Composer\PdfOverlay
+		20.background = EXT:cmp3_demo/fixture/news-bg.pdf
+		20.multi = 1
+	}
+}
+

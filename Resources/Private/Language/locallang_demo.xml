@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for backend module CMP3 Demo belonging to extension 'cmp3_demo'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+		<label index="mlang_tabs_tab">Demo</label>
+			<label index="mlang_labels_tabdescr">This extension is a demonstration of the CMP3 (Cross Media Publishing) extension. You can try different examples and see the result.</label>
+			<label index="mlang_labels_tablabel">CMP3 Demo</label>
+		</languageKey>
+	</data>
+</T3locallang>

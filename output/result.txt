@@ -1,0 +1,28 @@
+<Person>
+  <Gender>
+                        Female
+                    </Gender>
+  <Header>
+
+        <FirstName>Yosi</FirstName>
+        <LastName>Havia</LastName>
+        <Age>30</Age>
+        <Education>BA</Education>
+    </Header>
+  <Data>
+    <Children>
+      <Child>
+        <FirstName>Angela</FirstName>
+        <Age>15</Age>
+      </Child>
+      <Child>
+        <FirstName>Benjamin</FirstName>
+        <Age>17</Age>
+      </Child>
+      <Child>
+        <FirstName>Carol</FirstName>
+        <Age>13</Age>
+      </Child>
+    </Children>
+  </Data>
+</Person>

@@ -1,0 +1,35 @@
+
+
+source {
+	xmlfile = \Cmp3\Source\Fetcher
+	xmlfile.title = xml file
+	xmlfile.fetcher = \Cmp3\Fetcher\File
+	xmlfile.fetcher {
+		type = XML
+		url = EXT:cmp3_demo/fixture/rich-long.xml
+	}
+
+}
+
+
+#----- transformation -----------------------------------------------------
+
+transformation.rich_to_pdf_with_fop = \Cmp3\Transformation\Fop
+transformation.rich_to_pdf_with_fop {
+	stylesheet = EXT:cmp3_demo/fixture/rich_to_fo.xsl
+	// config file for fop
+	engine.fop.config =
+	// cli parameter
+	engine.fop.parameter =
+}
+
+
+#----- JOB -----------------------------------------------------
+
+job.Rich2FOP.title = HTML richtext to PDF using FOP
+job.Rich2FOP {
+	parts {
+		10.source = xmlfile
+		10.transformation= rich_to_pdf_with_fop
+	}
+}

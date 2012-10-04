@@ -1,0 +1,35 @@
+
+
+source {
+	pdffile1 = \Cmp3\Source\Fetcher
+	pdffile1.title = PDF
+	pdffile1.fetcher = \Cmp3\Fetcher\File
+	pdffile1.fetcher {
+		type = HTML
+		url = EXT:cmp3_demo/fixture/test-1.pdf
+	}
+
+	pdffile2 = \Cmp3\Source\Fetcher
+	pdffile2.title = PDF
+	pdffile2.fetcher = \Cmp3\Fetcher\File
+	pdffile2.fetcher {
+		type = HTML
+		url = EXT:cmp3_demo/fixture/test-2.pdf
+	}
+}
+
+
+job.PdfImpose.title = Impose two A4 PDF on A3 with composer
+job.PdfImpose {
+	parts {
+		10.source = pdffile1
+		20.source = pdffile2
+	}
+	compose {
+		10 = \Cmp3\Composer\PdfMerge
+
+		20 = \Cmp3\Composer\PdfImpose
+		20.plan = EXT:cmp3_demo/fixture/make_double_page_lua.plan
+		20.lua = 1
+	}
+}

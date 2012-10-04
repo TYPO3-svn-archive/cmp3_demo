@@ -1,0 +1,116 @@
+
+
+source {
+	htmlfile2 = \Cmp3\Source\Fetcher
+	htmlfile2.title = BaselineTypography.html
+	htmlfile2 {
+		fetcher = \Cmp3\Fetcher\File
+		fetcher {
+			type = HTML
+			url = EXT:cmp3_demo/fixture/BaselineTypography.html
+		}
+
+		processing {
+
+			# 10 = \Cmp3\ContentProcessing\HtmlInsertHiresImages
+
+			20 = \Cmp3\ContentProcessing\HtmlMakeLinksAbsolute
+
+			30 = \Cmp3\ContentProcessing\HtmlStripStyles
+
+			# 40 = \Cmp3\ContentProcessing\HtmlSetTransparentBackground
+
+			// test styles
+			// Oldstyle, Modernist, Midnight, Ultramarine, Swiss, Chocolate, Traditional, Steely
+			// http://www.w3.org/StyleSheets/Core/Oldstyle
+
+			40 = \Cmp3\ContentProcessing\HtmlAddStyles
+#			40.stylesheets.1 = EXT:naw_pdf/assets/css/example.css
+			40.stylesheets.2 = http://www.w3.org/StyleSheets/Core/Oldstyle
+#			40.stylesheets.3 = fileadmin/Oldstyle.css
+			40.inline.1 (
+				body { border: 3px solid red }
+				body { background-color:transparent; }
+				body { background:transparent; }
+			    * { background-image: none !important; }
+)
+		}
+	}
+}
+
+transformation.pdf2 = \Cmp3\Transformation\Html2Pdf
+transformation.pdf2 {
+
+	converter = \Cmp3\Converter\Webkit
+	#converter = \Cmp3\Converter\Mpdf
+
+	engine.wkhtmltopdf {
+
+		binaryPath = EXT:naw_pdf_wkhtmltopdf_amd64/bin64/wkhtmltopdf-amd64
+		// binaryPath = EXT:naw_pdf_wkhtmltopdf/bin/wkhtmltopdf-i386
+		// binaryPath = /usr/bin/wkhtmltopdf
+
+		// todo specific options/parameter for this engine
+
+		// wkhtmltopdf will render white background even if that is set and body is set to transparent
+		parameter = --no-background
+	}
+
+	engine.mpdf {
+		// todo specific options/parameter for this engine
+	}
+
+	engine.prince {
+		binaryPath = /usr/bin/prince
+	}
+
+	engine.pdftk {
+		binaryPath =
+	}
+
+	page {
+		// Set paper size to: A4, Letter, etc.
+		size = A4
+
+		// portrait, landscape
+		orientation = portrait
+
+		// Page width and height (default unit millimeter)
+		width =
+		height =
+
+		// margins in mm
+		marginTop = 30
+		marginBottom = 30
+		marginLeft = 15
+		marginRight = 15
+	}
+
+	options {
+		// The title of the generated pdf file (The title of the first document is used if not specified)
+		title =
+
+		// dpi for images - seems not to work
+		dpi = 240
+
+	    renderLinks = 1
+	    renderForms = 1
+	    mediaType = screen
+#TODO what's this?
+	    autoFit = 1
+
+		overlay = fileadmin/approved.pdf
+		background = fileadmin/background.pdf
+	}
+}
+
+
+
+job.Html2PdfProcessing.title = HTML file to PDF with processing
+job.Html2PdfProcessing {
+	parts {
+		10.source = htmlfile2
+		10.transformation = pdf2
+	}
+}
+

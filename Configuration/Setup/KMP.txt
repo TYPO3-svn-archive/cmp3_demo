@@ -1,0 +1,264 @@
+
+
+#----- Source -----------------------------------------------------
+
+source {
+
+	single_product = \Cmp3\Source\Typo3Xml
+	single_product.title = product with processing
+	single_product.fetcher = \Cmp3\Source\Typo3Query
+	single_product.fetcher {
+
+		// not really needed - we use of the record uid anyway
+		// language = {JobData:language}
+		languageOverlayMode = hideNonTranslated
+		contentFallback =
+		enableFields = BE
+
+		selection {
+			10 = product
+		}
+
+		queries.product {
+			table = tx_kmpproduct_product
+			enableFields = default
+			// can be used too: id = {JobData:item}
+			constraints {
+				uid = 28
+			}
+		}
+	}
+	single_product.processing {
+
+		#5 = \Cmp3\ContentProcessing\FileWriter
+		#5.filename = EXT:kmp_cmp3/tests/output/record.xml
+
+		#100 = \Cmp3\ContentProcessing\FileWriter
+		#100.filename = EXT:kmp_cmp3/tests/output/record_processed.xml
+
+		#10 = \Cmp3\ContentProcessing\XPath_DataMerge
+		#10.xpathParent = //cmp3:record
+		#10.xpathData = //field
+		#10.useData = extraData
+
+		22 = \Cmp3\ContentProcessing\XPath_ImageMeta
+		22.xpath = //field[@format="image_file"]
+
+		25 = \Cmp3\ContentProcessing\XPath_Typo3RteRender
+		25.xpath = //field[@name="freitext_produkt"]
+
+		20 = \Cmp3\ContentProcessing\XPath_Typo3RteRender
+		20.xpath = //field[@format="typo3_rte"]
+
+		30 = \Cmp3\ContentProcessing\XPath_Typo3TableRender
+		30.xpath = //field[@format="typo3_table"]
+		30.headerPos = left
+
+		40 = \Cmp3\ContentProcessing\XPath_QRCode
+		40 {
+			xpath = //field[@name="print_url"]/value
+			backgroundColor = #FFFFFF
+			foreColor = #000000
+			padding = 0
+			moduleSize = 4
+			ecclevel = M
+		}
+	}
+
+}
+
+
+
+#----- Transformation ------------------------------------------
+
+transformation.xml_to_pdf_with_fop = \Cmp3\Transformation\Fop
+transformation.xml_to_pdf_with_fop {
+	stylesheet =
+	# foout = EXT:kmp_cmp3/tests/output/fo.xml
+	// config file for fop
+	engine.fop.config = EXT:kmp_cmp3/stylesheets/fop.xconf
+	// cli parameter
+	engine.fop.parameter =
+}
+
+
+transformation.1a_KMP_CrossMedia_A4_1-seitig < .transformation.xml_to_pdf_with_fop
+transformation.1a_KMP_CrossMedia_A4_1-seitig.stylesheet = EXT:kmp_cmp3/stylesheets/1a_KMP_CrossMedia_A4_1-seitig/1a_KMP_CrossMedia_A4_1-seitig-plain.xsl
+
+transformation.2a_KMP_CrossMedia_A4_2-seitig_Maschinen < .transformation.xml_to_pdf_with_fop
+transformation.2a_KMP_CrossMedia_A4_2-seitig_Maschinen.stylesheet = EXT:kmp_cmp3/stylesheets/2a_KMP_CrossMedia_A4_2-seitig_Maschinen/2a_KMP_CrossMedia_A4_2-seitig_Maschinen-plain.xsl
+
+transformation.2b_KMP_CrossMedia_A4_2-seitig_Services < .transformation.xml_to_pdf_with_fop
+transformation.2b_KMP_CrossMedia_A4_2-seitig_Services.stylesheet = EXT:kmp_cmp3/stylesheets/2b_KMP_CrossMedia_A4_2-seitig_Services/2b_KMP_CrossMedia_A4_2-seitig_Services-plain.xsl
+
+transformation.2c_KMP_CrossMedia_A4_2-seitig_Freitext < .transformation.xml_to_pdf_with_fop
+transformation.2c_KMP_CrossMedia_A4_2-seitig_Freitext.stylesheet = EXT:kmp_cmp3/stylesheets/2c_KMP_CrossMedia_A4_2-seitig_Freitext/2c_KMP_CrossMedia_A4_2-seitig_Freitext-plain.xsl
+
+transformation.3a_KMP_CrossMedia_A4_6-seitig_Maschinen < .transformation.xml_to_pdf_with_fop
+transformation.3a_KMP_CrossMedia_A4_6-seitig_Maschinen.stylesheet = EXT:kmp_cmp3/stylesheets/3a_KMP_CrossMedia_A4_6-seitig_Maschinen/3a_KMP_CrossMedia_A4_6-seitig_Maschinen-plain.xsl
+
+transformation.4a_KMP_CrossMedia_A4_4-seitig_Maschinen < .transformation.xml_to_pdf_with_fop
+transformation.4a_KMP_CrossMedia_A4_4-seitig_Maschinen.stylesheet = EXT:kmp_cmp3/stylesheets/4a_KMP_CrossMedia_A4_4-seitig_Maschinen/4a_KMP_CrossMedia_A4_4-seitig_Maschinen-plain.xsl
+
+transformation.4b_KMP_CrossMedia_A4_4-seitig_Service < .transformation.xml_to_pdf_with_fop
+transformation.4b_KMP_CrossMedia_A4_4-seitig_Service.stylesheet = EXT:kmp_cmp3/stylesheets/4b_KMP_CrossMedia_A4_4-seitig_Service/4b_KMP_CrossMedia_A4_4-seitig_Service-plain.xsl
+
+
+
+
+#----- JOB -----------------------------------------------------
+
+
+
+
+job.KMP.title = 1a
+job.KMP {
+	parts {
+		10.source = single_product
+		10.transformation= 1a_KMP_CrossMedia_A4_1-seitig
+		10.postProcessing {
+			10 = \Cmp3\ContentProcessing\PdfOverlay
+			10.background = EXT:kmp_cmp3/stylesheets/1a_KMP_CrossMedia_A4_1-seitig/1a_KMP_CrossMedia_A4_1-seitig-bg.pdf
+			10.background = EXT:kmp_cmp3/stylesheets/naw-bg/1a_naw_CrossMedia_A4_1-seitig-bg.pdf
+			10.multi = 1
+		}
+	}
+	compose {
+		10 = \Cmp3\Composer\PdfShrink
+		10.quality = ebook
+	}
+}
+
+job.2a_KMP_CrossMedia_A4_2-seitig_Maschinen.title = 2a
+job.2a_KMP_CrossMedia_A4_2-seitig_Maschinen {
+	parts {
+		10.source = single_product
+		10.transformation= 2a_KMP_CrossMedia_A4_2-seitig_Maschinen
+		10.postProcessing {
+		}
+	}
+	compose {
+		10 = \Cmp3\Composer\PdfShrink
+		10.quality = ebook
+
+		20 = \Cmp3\Composer\PdfOverlay
+		20.background = EXT:kmp_cmp3/stylesheets/2a_KMP_CrossMedia_A4_2-seitig_Maschinen/2a_KMP_CrossMedia_A4_2-seitig_Maschinen-bg.pdf
+		20.multi = 1
+
+		30 = \Cmp3\Composer\PdfImpose
+		30.plan = EXT:kmp_cmp3/stylesheets/make_double_page_lua.plan
+		30.lua = 1
+	}
+}
+
+job.2b_KMP_CrossMedia_A4_2-seitig_Services.title = 2b
+job.2b_KMP_CrossMedia_A4_2-seitig_Services {
+	parts {
+		10.source = single_product
+		10.transformation= 2b_KMP_CrossMedia_A4_2-seitig_Services
+		10.postProcessing {
+		}
+	}
+	compose {
+		10 = \Cmp3\Composer\PdfShrink
+		10.quality = ebook
+
+		20 = \Cmp3\Composer\PdfOverlay
+		20.background = EXT:kmp_cmp3/stylesheets/2b_KMP_CrossMedia_A4_2-seitig_Services/2b_KMP_CrossMedia_A4_2-seitig_Services-bg.pdf
+		20.background = EXT:kmp_cmp3/stylesheets/naw-bg/2b_naw_CrossMedia_A4_2-seitig_Services-bg.pdf
+		20.multi = 1
+
+		30 = \Cmp3\Composer\PdfImpose
+		30.plan = EXT:kmp_cmp3/stylesheets/make_double_page_lua.plan
+		30.lua = 1
+	}
+}
+
+job.2c_KMP_CrossMedia_A4_2-seitig_Freitext.title = 2c
+job.2c_KMP_CrossMedia_A4_2-seitig_Freitext {
+	parts {
+		10.source = single_product
+		10.transformation= 2c_KMP_CrossMedia_A4_2-seitig_Freitext
+		10.postProcessing {
+		}
+	}
+	compose {
+		10 = \Cmp3\Composer\PdfShrink
+		10.quality = ebook
+
+		20 = \Cmp3\Composer\PdfOverlay
+		20.background = EXT:kmp_cmp3/stylesheets/2c_KMP_CrossMedia_A4_2-seitig_Freitext/2c_KMP_CrossMedia_A4_2-seitig_Freitext-bg.pdf
+		20.multi = 1
+
+		30 = \Cmp3\Composer\PdfImpose
+		30.plan = EXT:kmp_cmp3/stylesheets/make_double_page_lua.plan
+		30.lua = 1
+	}
+}
+
+job.3a_KMP_CrossMedia_A4_6-seitig_Maschinen.title = 2c
+job.3a_KMP_CrossMedia_A4_6-seitig_Maschinen {
+	parts {
+		10.source = single_product
+		10.transformation= 3a_KMP_CrossMedia_A4_6-seitig_Maschinen
+		10.postProcessing {
+		}
+	}
+	compose {
+		10 = \Cmp3\Composer\PdfShrink
+		10.quality = ebook
+
+		20 = \Cmp3\Composer\PdfOverlay
+		20.background = EXT:kmp_cmp3/stylesheets/3a_KMP_CrossMedia_A4_6-seitig_Maschinen/3a_KMP_CrossMedia_A4_6-seitig_Maschinen-bg.pdf
+		20.multi = 1
+
+		30 = \Cmp3\Composer\PdfImpose
+		30.plan = EXT:kmp_cmp3/stylesheets/make_triple_page_lua.plan
+		30.lua = 1
+	}
+}
+
+job.4a_KMP_CrossMedia_A4_4-seitig_Maschinen.title = 4a
+job.4a_KMP_CrossMedia_A4_4-seitig_Maschinen {
+	parts {
+		10.source = single_product
+		10.transformation= 4a_KMP_CrossMedia_A4_4-seitig_Maschinen
+		10.postProcessing {
+		}
+	}
+	compose {
+		10 = \Cmp3\Composer\PdfShrink
+		10.quality = ebook
+
+		20 = \Cmp3\Composer\PdfOverlay
+		20.background = EXT:kmp_cmp3/stylesheets/4a_KMP_CrossMedia_A4_4-seitig_Maschinen/4a_KMP_CrossMedia_A4_4-seitig_Maschinen-bg.pdf
+		20.background = EXT:kmp_cmp3/stylesheets/naw-bg/4a_naw_CrossMedia_A4_4-seitig_Maschinen-bg.pdf
+		20.multi = 1
+
+		30 = \Cmp3\Composer\PdfImpose
+		30.plan = EXT:kmp_cmp3/stylesheets/make_double_page_lua.plan
+		30.lua = 1
+	}
+}
+
+job.4b_KMP_CrossMedia_A4_4-seitig_Service.title = 4b
+job.4b_KMP_CrossMedia_A4_4-seitig_Service {
+	parts {
+		10.source = single_product
+		10.transformation= 4b_KMP_CrossMedia_A4_4-seitig_Service
+		10.postProcessing {
+		}
+	}
+	compose {
+		10 = \Cmp3\Composer\PdfShrink
+		10.quality = ebook
+
+		20 = \Cmp3\Composer\PdfOverlay
+		20.background = EXT:kmp_cmp3/stylesheets/4b_KMP_CrossMedia_A4_4-seitig_Service/4b_KMP_CrossMedia_A4_4-seitig_Service-bg.pdf
+		20.multi = 1
+
+		30 = \Cmp3\Composer\PdfImpose
+		30.plan = EXT:kmp_cmp3/stylesheets/make_double_page_lua.plan
+		30.lua = 1
+	}
+}
